@@ -1,12 +1,12 @@
 <Table>
-  <Row>
-    <Cell>ui_nm_oneblade</Cell>
-    <Cell>OneBlade</Cell>
-    <Cell>OneBlade</Cell>
-  </Row>
-  <Row>
-    <Cell>ui_in_oneblade</Cell>
-    <Cell>A well-balanced short sword with a distinctive single-edged blade. Though smaller than a longsword, it offers exceptional speed and precision in combat.</Cell>
-    <Cell>A well-balanced short sword with a distinctive single-edged blade. Though smaller than a longsword, it offers exceptional speed and precision in combat.</Cell>
-  </Row>
+<Row>
+<Cell>ui_nm_oneblade</Cell>
+<Cell>OneBlade</Cell>
+<Cell>OneBlade</Cell>
+</Row>
+<Row>
+<Cell>ui_in_oneblade</Cell>
+<Cell>A legendary sword known as OneBlade. Its perfectly balanced blade makes it deadly in combat.</Cell>
+<Cell>A legendary sword known as OneBlade. Its perfectly balanced blade makes it deadly in combat.</Cell>
+</Row>
 </Table>
