@@ -28,10 +28,25 @@ This document serves as a comprehensive reference for modding Kingdom Come: Deli
 
 ## Official Resources
 
-- **Warhorse YouTrack Knowledge Base:** https://warhorse.youtrack.cloud/articles/KM-A-1/Modding-Kingdom-Come-Deliverance-2
-- **Modding Tools Article:** https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools
+### Warhorse YouTrack Knowledge Base
+Main hub: https://warhorse.youtrack.cloud/articles/KM-A-1/Modding-Kingdom-Come-Deliverance-2
+
+| Article | URL |
+|---------|-----|
+| Main Modding Page | https://warhorse.youtrack.cloud/articles/KM-A-1 |
+| **Adding a new Item** | https://warhorse.youtrack.cloud/articles/KM-A-17/Adding-a-new-Item |
+| Structure of a Mod | https://warhorse.youtrack.cloud/articles/KM-A-3/Structure-of-a-Mod |
+| The Modding Tools | https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools |
+| Installing Mods | https://warhorse.youtrack.cloud/articles/KM-A-56/Installing-mods |
+| Publishing a Mod | https://warhorse.youtrack.cloud/articles/KM-A-58/Publishing-a-mod |
+| Technical Overview | https://warhorse.youtrack.cloud/articles/KM-A-36/Technical-Overview |
+
+### Community Resources
 - **Community Wiki:** https://modding.wiki/en/kingdomcomedeliverance2/mod-development
+- **PTF Documentation:** https://modding.wiki/en/kingdomcomedeliverance2/mod-development/fundamentals/ptf
+- **Adding Custom Weapon Guide (MAJOR76):** https://modding.wiki/en/kingdomcomedeliverance2/mod-development/disciplines/3d/Addingcustomweapon
 - **Steam Workshop:** https://steamcommunity.com/workshop/about/?appid=1771300
+- **KCD2 Modding Hub:** https://modskcd2.com/kingdom-come-deliverance-2-modding-hub/
 
 ---
 
@@ -67,6 +82,21 @@ This document serves as a comprehensive reference for modding Kingdom Come: Deli
 
 ### 7. KCD Asset Finder (by Alier)
 - Search engine for game assets by keyword across all `.pak` files
+
+### 8. Warbox (Advanced Tool)
+- GitHub: https://github.com/vawser/Warbox
+- **Table Editor:** Search and modify configuration table data
+- **Text Editor:** Modify text/localization content
+- **PTF Generation:** "Save Patch File" saves only entries that differ from base game
+- **Packaging:** Creates PAK files ready for game loading, auto-generates mod.manifest
+- Requirements: Windows 7-11 (64-bit), .NET Core 7.0, Vulkan 1.3-compatible GPU
+
+### 9. ModForge
+- GitHub: https://github.com/Destuur/ModForge
+- GUI tool for reading, editing, and exporting XML-based game files
+- Supports: Perks, Buffs, Debuffs, Localizations
+- Auto-generates mod folder structure and mod.manifest
+- Exports directly to .pak format
 
 ---
 
@@ -128,8 +158,29 @@ mods/
 ```
 
 ### Patched Table Files (PTF) Naming Convention
-- **CRITICAL:** File must be named `tablename__modid.xml` (TWO underscores)
-- Example: `item__oneblade.xml` where `oneblade` is your modid
+
+PTF allows targeted file modifications instead of overwriting entire files. This enhances compatibility, enabling multiple mods to alter the same file provided they don't modify the same lines.
+
+**CRITICAL NAMING RULES:**
+1. File must be named `tablename__modid.xml` (TWO underscores between table name and modid)
+2. The modid must match EXACTLY across:
+   - Mod folder name
+   - `<modid>` in mod.manifest
+   - PTF file suffix
+3. Modid restrictions:
+   - **Lowercase letters only**
+   - **No numbers**
+   - **Underscores allowed**
+
+**Examples:**
+- `item__oneblade.xml` ✓
+- `rpg_param__my_first_mod.xml` ✓
+- `item_oneblade.xml` ✗ (single underscore)
+- `item__OneBlade.xml` ✗ (uppercase)
+- `item__oneblade123.xml` ✗ (numbers)
+
+**How PTF Works:**
+When the game loads, it processes all Table files including those from mods. Mod Table Files take precedence over built-in ones, enabling overrides of vanilla properties. PTF mods won't conflict unless they edit the exact same lines for the same entries.
 
 ---
 
@@ -330,6 +381,20 @@ InventoryPreset files may have limited PTF support. Consider using the **IPM Too
 - **CGF:** Export C Engine → generates `.dae` then `.cgf`
 - **Skin:** Export KCD2 → generates `.skin`
 - **Rename if needed:** Exporter may append `_mesh` - rename to match original
+
+### Creating Item Icons
+1. Create icon at appropriate size (typically 128x128 or 256x256)
+2. Save as `.tif` in: `Data/Libs/UI/Textures/Icons/Items/`
+3. Convert to DDS using RC.exe
+4. **IMPORTANT:** Icons must use **BC7 compression format** if exporting directly to DDS
+5. Icon filename uses `_icon` suffix (e.g., `oneblade_icon.dds`)
+6. In item.xml, reference WITHOUT the `_icon` suffix: `IconId="oneblade"`
+
+### Modeling Tips (from MAJOR76)
+- Start modeling on top of existing models to understand slot locations
+- Be careful with grip positioning - affects how character holds weapon
+- When exporting, sharp edge info is lost - add supporting edges to prevent shading artifacts
+- Copy `bloodrust_mask` & `scratches_dt` textures from existing weapons (universal to all swords)
 
 ### Folder Paths for Assets
 ```
@@ -607,12 +672,44 @@ z_radzigsword/
 
 ## External Tool Links
 
-- **KCD2 Pack Tool:** GitHub (search "KCD2 Pack Tool Laughing Man")
-- **Blender Toolkit:** GitHub (search "KCD2 Blender Toolkit")
-- **Kamzik's Texture Tool:** Nexus Mods
-- **KCD Asset Finder:** Community tool by Alier
-- **IPM Tool:** For InventoryPreset merging
+| Tool | Description | Link |
+|------|-------------|------|
+| KCD2 Pack Tool | Compresses mod folders to .pak | GitHub (Laughing Man) |
+| Blender Toolkit | Import/export KCD2 models | GitHub |
+| Kamzik's Texture Tool | Convert streamed DDS files | Nexus Mods |
+| KCD Asset Finder | Search game assets by keyword | Community tool (Alier) |
+| IPM Tool | InventoryPreset merger | Nexus Mods |
+| Warbox | Advanced table/text editor with PTF | https://github.com/vawser/Warbox |
+| ModForge | GUI XML editor and mod packager | https://github.com/Destuur/ModForge |
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+**Item doesn't appear in game:**
+- Verify PTF naming (TWO underscores: `item__modid.xml`)
+- Check modid matches across mod.manifest and all PTF files
+- Ensure GUID is unique and properly formatted
+- Check file paths match game structure exactly
+
+**Textures appear wrong:**
+- Verify file suffix matches type (`_diff`, `_ddna`, `_spec`)
+- Check texture dimensions are power of 2
+- Ensure DDS compression format is correct
+
+**Console command doesn't work:**
+- Verify `-devmode` is in Steam launch options
+- Use full GUID with dashes
+- Check for typos in GUID
+
+**Mod conflicts with other mods:**
+- Use PTF format instead of full file replacement
+- Check if other mods edit same table entries
+- Consider using IPM Tool for InventoryPreset compatibility
 
 ---
 
 *This document is maintained as part of the OneBlade Mod project for KCD2.*
+*Last updated: January 2026*
