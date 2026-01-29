@@ -17,6 +17,9 @@ Create a custom weapon item called "OneBlade" that can be:
 ### Current Phase
 **Phase 1:** Basic item with borrowed assets (model/icon from existing sword)
 
+### Item GUID
+**`fd0db742-6c8c-475e-983f-1594f99fc904`**
+
 ---
 
 ## Key Technical Decisions
@@ -40,9 +43,12 @@ Create a custom weapon item called "OneBlade" that can be:
 
 ## File Structure
 
+**Mod files location in repo:** `Mod/oneblade/`
+
 ```
-mods/oneblade/
+Mod/oneblade/                              <- Copy this folder to [KCD2]/mods/
 ├── mod.manifest
+├── README.txt                             <- Installation instructions
 ├── Data/
 │   └── Libs/
 │       └── Tables/
@@ -50,8 +56,7 @@ mods/oneblade/
 │               ├── item__oneblade.xml
 │               └── InventoryPreset__oneblade.xml
 └── Localization/
-    └── English_xml.pak
-        └── text__oneblade.xml
+    └── text__oneblade.xml                 <- MUST be packed into English_xml.pak!
 ```
 
 ---
@@ -79,13 +84,14 @@ mods/oneblade/
 - [x] Analyzed reference mods (rose_equipment, z_radzigsword)
 - [x] Created technical reference guide
 - [x] Determined mod structure and file naming
+- [x] Create mod folder structure
+- [x] Generate unique GUID for OneBlade item
+- [x] Create item__oneblade.xml
+- [x] Create InventoryPreset__oneblade.xml (adds to Henry's starting inventory)
+- [x] Create localization files
 
 ### In Progress
-- [ ] Create mod folder structure
-- [ ] Generate unique GUID for OneBlade item
-- [ ] Create item__oneblade.xml
-- [ ] Create InventoryPreset__oneblade.xml
-- [ ] Create localization files
+- [ ] Pack localization into English_xml.pak (user task - needs 7-Zip)
 - [ ] Test in-game
 
 ### Future (Phase 2)
@@ -121,7 +127,12 @@ mods/oneblade/
 - Downloaded and organized YouTrack documentation
 - Read official docs: Adding new Item, Inventory Presets, Localization, Mod Structure
 - Created knowledge base and project roadmap
-- Next: Create mod files and test
+- Created all mod files:
+  - mod.manifest (modid: oneblade)
+  - item__oneblade.xml (GUID: fd0db742-6c8c-475e-983f-1594f99fc904)
+  - InventoryPreset__oneblade.xml (adds to Henry's inventory)
+  - text__oneblade.xml (name + description)
+- Next: User packs localization, tests in-game
 
 ---
 

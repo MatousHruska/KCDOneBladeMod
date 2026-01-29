@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          name="barbora"
+          xsi:noNamespaceSchemaLocation="item.xsd">
+  <ItemClasses version="8">
+    <MeleeWeapon
+      Attack="200"
+      AttackModStab="1.1"
+      AttackModSlash="1.2"
+      AttackModSmash="0.3"
+      Class="4"
+      Defense="280"
+      MaxStatus="300"
+      StrReq="10"
+      AgiReq="10"
+      IsBreakable="false"
+      Visibility="1"
+      Conspicuousness="1"
+      Charisma="25"
+      SocialClassId="0"
+      WealthLevel="0"
+      MaxQuality="4"
+      Clothing="Scabbard_LongSword04_m02"
+      IconId="sermiry_longSwordGuild"
+      UIInfo="ui_in_oneblade"
+      UIName="ui_nm_oneblade"
+      IsQuestItem="false"
+      Model="manmade/weapons/swords_long/sermiri_long_sword_guild.cgf"
+      Weight="2.4"
+      Price="50000"
+      FadeCoef="1"
+      VisibilityCoef="16.75112"
+      Id="fd0db742-6c8c-475e-983f-1594f99fc904"
+      Name="oneblade"
+    />
+  </ItemClasses>
+</database>
