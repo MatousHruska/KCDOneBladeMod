@@ -5,26 +5,7 @@
 ITEM GUID: fd0db742-6c8c-475e-983f-1594f99fc904
 
 ================================================================================
-STEP 1: PACK THE LOCALIZATION FILE
-================================================================================
-
-The localization file needs to be packed into a .pak archive.
-
-Using 7-Zip:
-1. Open the Localization folder
-2. Right-click on "text__oneblade.xml"
-3. Select: 7-Zip > Add to archive...
-4. Set Archive format: zip
-5. Set Archive name: English_xml.zip
-6. Click OK
-7. Rename "English_xml.zip" to "English_xml.pak"
-8. DELETE the original text__oneblade.xml (only keep the .pak)
-
-Your Localization folder should now contain only:
-  - English_xml.pak
-
-================================================================================
-STEP 2: INSTALL THE MOD
+STEP 1: INSTALL THE MOD
 ================================================================================
 
 1. Locate your KCD2 installation folder:
@@ -39,12 +20,11 @@ STEP 2: INSTALL THE MOD
 Final structure should be:
   [KCD2 Install]\mods\oneblade\
     ├── mod.manifest
-    ├── Data\Libs\Tables\Item\item__oneblade.xml
-    ├── Data\Libs\Tables\Item\InventoryPreset__oneblade.xml
+    ├── Data\oneblade.pak
     └── Localization\English_xml.pak
 
 ================================================================================
-STEP 3: ENABLE DEV MODE (for console testing)
+STEP 2: ENABLE DEV MODE (for console testing)
 ================================================================================
 
 1. Open Steam
@@ -54,7 +34,7 @@ STEP 3: ENABLE DEV MODE (for console testing)
 5. Click OK
 
 ================================================================================
-STEP 4: TEST IN GAME
+STEP 3: TEST IN GAME
 ================================================================================
 
 Option A: Start New Game
