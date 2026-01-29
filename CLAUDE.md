@@ -67,7 +67,6 @@ Mod/oneblade/                              <- Copy this folder to [KCD2]/mods/
 1. **KnowledgeBase/YouTrack/** - Official Warhorse documentation (LOCAL)
 2. **KnowledgeBase/KCD2_Modding_Guide.md** - Compiled reference guide
 3. **KnowledgeBase/VideoTutorial.docx** - Community tutorial notes
-4. **Reference/** - Working mod examples (rose_equipment, z_radzigsword)
 
 ### Key YouTrack Documents
 - `Walkthroughs/Adding a new Item.docx` - Step-by-step item creation
@@ -81,7 +80,6 @@ Mod/oneblade/                              <- Copy this folder to [KCD2]/mods/
 
 ### Completed
 - [x] Set up knowledge base with YouTrack documentation
-- [x] Analyzed reference mods (rose_equipment, z_radzigsword)
 - [x] Created technical reference guide
 - [x] Determined mod structure and file naming
 - [x] Create mod folder structure
