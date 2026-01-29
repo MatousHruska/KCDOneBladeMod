@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          name="barbora"
-          xsi:noNamespaceSchemaLocation="item.xsd">
-  <ItemClasses version="8">
-    <MeleeWeapon
-      Attack="95"
-      AttackModStab="1.0"
-      AttackModSlash="0.9"
-      AttackModSmash="0.2"
-      Class="1"
-      SubClass="11"
-      Defense="140"
-      MaxStatus="200"
-      StrReq="6"
-      AgiReq="6"
-      IsBreakable="true"
-      Visibility="1"
-      Conspicuousness="1"
-      Charisma="10"
-      SocialClassId="0"
-      WealthLevel="0"
-      MaxQuality="4"
-      UiSound="ui_inv_item_weapon_sword"
-      Clothing="Scabbard_ShortSword01"
-      IconId="shortsword_01"
-      UIInfo="ui_in_oneblade"
-      UIName="ui_nm_oneblade"
-      Model="manmade/weapons/swords_short/shortsword_01.cgf"
-      Material="manmade/weapons/swords_short/shortsword_01.mtl"
-      Weight="1.8"
-      Price="850"
-      FadeCoef="1"
-      VisibilityCoef="10.0"
-      Id="fd0db742-6c8c-475e-983f-1594f99fc904"
-      Name="oneblade"
-    />
-  </ItemClasses>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="barbora" xsi:noNamespaceSchemaLocation="item.xsd">
+<ItemClasses version="8">
+  <MeleeWeapon Attack="166" AttackModStab="1.05" AttackModSlash="1" AttackModSmash="0.2" Class="4" Defense="259" MaxStatus="141" StrReq="17" AgiReq="20" IsBreakable="false" Visibility="1" Conspicuousness="1" Charisma="20" SocialClassId="0" WealthLevel="0" MaxQuality="4" Clothing="Scabbard_LongSword04_m02" IconId="sermiry_longSwordGuild" UIInfo="ui_in_oneblade" UIName="ui_nm_oneblade" IsQuestItem="false" Model="manmade/weapons/swords_long/sermiri_long_sword_guild.cgf" Weight="2.6" Price="30985" FadeCoef="1" VisibilityCoef="16.75112" Id="fd0db742-6c8c-475e-983f-1594f99fc904" Name="oneblade" />
+</ItemClasses>
 </database>
