@@ -15,7 +15,7 @@ Create a custom weapon item called "OneBlade" that can be:
 2. Later: Have custom model and textures
 
 ### Current Phase
-**Phase 1:** Basic item with borrowed assets (model/icon from existing sword)
+**Phase 1:** Basic item with borrowed assets (model/icon from existing short sword) - COMPLETE
 
 ### Item GUID
 **`fd0db742-6c8c-475e-983f-1594f99fc904`**
@@ -53,10 +53,10 @@ Mod/oneblade/                              <- Copy this folder to [KCD2]/mods/
 │   └── Libs/
 │       └── Tables/
 │           └── Item/
-│               ├── item__oneblade.xml
-│               └── InventoryPreset__oneblade.xml
+│               └── item__oneblade.xml
 └── Localization/
-    └── text__oneblade.xml                 <- MUST be packed into English_xml.pak!
+    ├── text_ui_oneblade.xml               <- Source localization file
+    └── English_xml.pak                    <- Packed localization (ready to use)
 ```
 
 ---
@@ -84,19 +84,21 @@ Mod/oneblade/                              <- Copy this folder to [KCD2]/mods/
 - [x] Determined mod structure and file naming
 - [x] Create mod folder structure
 - [x] Generate unique GUID for OneBlade item
-- [x] Create item__oneblade.xml
-- [x] Create InventoryPreset__oneblade.xml (adds to Henry's starting inventory)
+- [x] Create item__oneblade.xml (short sword, Class 1)
 - [x] Create localization files
+- [x] Pack localization into English_xml.pak
+- [x] Create README.txt with installation and console command instructions
 
-### In Progress
-- [ ] Pack localization into English_xml.pak (user task - needs 7-Zip)
-- [ ] Test in-game
+### Ready for Testing
+- Console command: `wh_cheat_addItem fd0db742-6c8c-475e-983f-1594f99fc904`
+- Requires `-devmode` launch option in Steam
 
 ### Future (Phase 2)
 - [ ] Create custom 3D model
 - [ ] Create custom textures
 - [ ] Create custom icon
 - [ ] Create custom scabbard (optional)
+- [ ] Add to merchant inventory (Troskovice)
 
 ---
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kcd_mod>
+  <info>
+    <name>OneBlade</name>
+    <modid>oneblade</modid>
+    <description>Adds a custom short sword called OneBlade to the game.</description>
+    <author>OneBlade Mod Team</author>
+    <version>1.0</version>
+    <created_on>2026-01-29</created_on>
+  </info>
+  <supports>
+    <version>1.*</version>
+  </supports>
+</kcd_mod>
